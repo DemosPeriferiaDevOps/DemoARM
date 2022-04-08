@@ -1,13 +1,13 @@
-#infraestructura con terraform en AZURE
+# infraestructura con terraform en AZURE
 
 Para realizar la infaestructura necesitamos tener instalado
-*Visual estudio = https://code.visualstudio.com/download
-*Azure CLI = https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
-*Terraform = https://www.terraform.io/downloads
+* Visual estudio = https://code.visualstudio.com/download
+* Azure CLI = https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+* Terraform = https://www.terraform.io/downloads
 
-#Pasos
-*como primer paso necesitamos crear un archivo .tf (Ejemplo: main.tf)
-*editaremos el archivo comendo con el codigo para la creacion de grupos de recursos
+# Pasos
+* como primer paso necesitamos crear un archivo .tf (Ejemplo: main.tf)
+* editaremos el archivo comendo con el codigo para la creacion de grupos de recursos
 ``` 
 
 provider "azurerm" {
@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "example" {
 
 Aca debemos de cambiar el name y si se requiere la localizacion 
 
-*ahora necesitaremos crear el codigo en el mismo archivo para un app service plan 
+* ahora necesitaremos crear el codigo en el mismo archivo para un app service plan 
 
 ```  
 
@@ -43,7 +43,7 @@ resource "azurerm_app_service_plan" "example" {
 
 en esta parte solo editaremos el name 
 
-*por ultimo en el mismo archivo se agrega la aprte para creacion de un app service 
+* por ultimo en el mismo archivo se agrega la aprte para creacion de un app service 
 ``` 
 
 resource "azurerm_app_service" "example" {
@@ -56,7 +56,7 @@ resource "azurerm_app_service" "example" {
 ``` 
 aca solo se cambiara el nombre  (Name)
 
-CODIGO COMPLETO
+# CODIGO COMPLETO
 ```
 
 provider "azurerm" {
@@ -89,11 +89,11 @@ resource "azurerm_app_service" "example" {
 
 ```
 
-#Comandos terraform para realizar la infraestructura
+# Comandos terraform para realizar la infraestructura
 
-*el primer comando que se usara sera ```terraform init``` , el cual comenzara a instalar los plugins necesarios para realizar el despliegue en el portal de AZURE
-*Despues se usara el comando ```terraform fmt --recursive``` este comando nos ayudara a arrelgar sintaxis como espacios 
-*Despues de este comando se realiza un  ```terraform plan``` con este comando se visualizara que se va a crear 
-*iniciaremos sesion con el portal de AZURe con el comando ```az login```
-*una vez iniciada sesion usaremos el comando ```terraform apply``` para crear nuestras secciones de codigo (Se crearan 3 recursos)
-*una vez terminado de usar todos nuestros recursos es recomendado usar ```terraform destroy``` para dejar de gastar recursos 
+* el primer comando que se usara sera ```terraform init``` , el cual comenzara a instalar los plugins necesarios para realizar el despliegue en el portal de AZURE
+* Despues se usara el comando ```terraform fmt --recursive``` este comando nos ayudara a arrelgar sintaxis como espacios 
+* Despues de este comando se realiza un  ```terraform plan``` con este comando se visualizara que se va a crear 
+* iniciaremos sesion con el portal de AZURe con el comando ```az login```
+* una vez iniciada sesion usaremos el comando ```terraform apply``` para crear nuestras secciones de codigo (Se crearan 3 recursos)
+* una vez terminado de usar todos nuestros recursos es recomendado usar ```terraform destroy``` para dejar de gastar recursos 
